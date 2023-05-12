@@ -1,0 +1,3 @@
+@function px-vw($size, $target) {
+  @return calc($size / $target * 100vw)
+}
