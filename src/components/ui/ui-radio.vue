@@ -1,25 +1,29 @@
 <template>
-  <label class="ui-radio" :class="{ active: isActive }">
+  <label class="ui-radio" :class="{ active: isActive }" :for="elId">
     <input
       type="radio"
       :value="value"
       v-model="model"
       @input="$emit('update:modelValue', $event.target.value)"
+      :id="elId"
     />
     {{ label }}
   </label>
 </template>
 
 <script lang="ts" setup>
+import { uid } from "@/helpers/functions";
 import { defineProps, defineEmits, computed } from "vue";
 
 const props = defineProps({
   modelValue: { type: String, required: true },
   label: { type: String, required: false },
   value: { type: String, required: true },
+  id: { type: String, required: false },
 });
 defineEmits(["update:modelValue"]);
 
+const elId = computed(() => props.id || uid());
 const model = computed(() => props.modelValue);
 
 const isActive = computed(() => model.value === props.value);

@@ -8,6 +8,7 @@
       v-maska="mask"
       masked="false"
       ref="input"
+      :id="elId"
     />
     <input
       :type="type"
@@ -15,11 +16,13 @@
       @input="$emit('update:modelValue', $event.target.value)"
       v-else
       ref="input"
+      :id="elId"
     />
     <label
       class="ui-input__label"
       :class="{ top: labelTop }"
       @click="() => input.focus()"
+      :for="elId"
     >
       {{ label }}</label
     >
@@ -28,6 +31,7 @@
 </template>
 
 <script lang="ts" setup>
+import { uid } from "@/helpers/functions";
 import { defineProps, defineEmits, computed, ref } from "vue";
 import { mask as vMaska } from "vue-the-mask";
 
@@ -39,9 +43,12 @@ const props = defineProps({
   label: { type: String, required: false, default: "" },
   help: { type: String, required: false, default: "" },
   mask: { type: String, required: false, default: "" },
+  id: { type: String, required: false, default: "" },
 });
 
 defineEmits(["update:modelValue"]);
+
+const elId = computed(() => props.id || uid());
 
 const input = ref(null);
 

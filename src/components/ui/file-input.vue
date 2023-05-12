@@ -1,6 +1,6 @@
 <template>
   <div class="file-input" :class="{ error: hasError }">
-    <label class="file-input__fake">
+    <label class="file-input__fake" :for="elId">
       <span> Upload </span>
       <span class="file-input__pl">{{ placeholder }}</span>
       <input
@@ -8,6 +8,7 @@
         @change="onChange"
         :multiple="multiple"
         :accept="accept"
+        :id="elId"
       />
     </label>
     <span class="file-input__help"> {{ help }} </span>
@@ -15,6 +16,7 @@
 </template>
 
 <script setup lang="ts">
+import { uid } from "@/helpers/functions";
 import { computed, Ref, ref, defineProps, defineEmits } from "vue";
 
 const props = defineProps({
@@ -23,9 +25,12 @@ const props = defineProps({
   placeholder: { type: String, required: false, default: "" },
   accept: { type: String, required: false },
   help: { type: String, required: false, default: "" },
+  id: { type: String, required: false, default: "" },
 });
 
 const emit = defineEmits(["update:files"]);
+
+const elId = computed(() => props.id || uid());
 
 const files: Ref<FileList | null> = ref(null);
 
