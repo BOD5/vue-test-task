@@ -48,7 +48,7 @@ const phoneFormat = (phoneNumber: string) => {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .user {
   background-color: white;
   border-radius: 10px;

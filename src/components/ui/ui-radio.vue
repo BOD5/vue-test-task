@@ -25,7 +25,7 @@ const model = computed(() => props.modelValue);
 const isActive = computed(() => model.value === props.value);
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .ui-radio {
   display: block;
   position: relative;
@@ -47,8 +47,9 @@ const isActive = computed(() => model.value === props.value);
     left: 0px;
     width: 20px;
     height: 20px;
-    border: 1px solid v.$secondary;
+    border: 1px solid v.$light-gray;
     border-radius: 20px;
+    transition: border 0.3s ease-in-out;
   }
   &::after {
     opacity: 0;
@@ -59,6 +60,12 @@ const isActive = computed(() => model.value === props.value);
     border-radius: 20px;
     background-color: v.$secondary;
     transition: opacity 0.3s ease-out;
+  }
+  &:hover,
+  &.active {
+    &::before {
+      border: 1px solid v.$secondary;
+    }
   }
   &.active {
     &::after {

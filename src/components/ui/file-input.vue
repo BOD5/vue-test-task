@@ -46,7 +46,7 @@ const placeholder = computed(
 );
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .file-input {
   position: relative;
   padding-bottom: 18px;

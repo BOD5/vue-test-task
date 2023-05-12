@@ -57,7 +57,7 @@ onMounted(async () => {
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .get-block {
   text-align: center;
 }

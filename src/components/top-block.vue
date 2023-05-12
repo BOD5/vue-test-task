@@ -21,20 +21,41 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .cover {
   width: 100vw;
   max-width: v.$cont-max;
   margin: 0px auto;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("@/assets/images/pexels-alexandr-podvalny-1227513.jpeg");
+    url("@/assets/images/bg/bg.webp");
   background-size: cover;
   background-position: 50% 50%;
   height: 500px;
   position: relative;
+
+  @media (min-width: v.$bp-tb) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("@/assets/images/bg/bg-768.webp");
+  }
+  @media (min-width: v.$bp-s) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("@/assets/images/bg/bg-1024.webp");
+  }
+
+  .no-webp & {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("@/assets/images/bg/bg.png");
+    @media (min-width: v.$bp-tb) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("@/assets/images/bg/bg-768.png");
+    }
+    @media (min-width: v.$bp-s) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("@/assets/images/bg/bg-1024.png");
+    }
+  }
   @media (min-width: v.$bp-s) {
     height: 650px;
-
     background-position: 50% 80%;
     background-size: 220%;
   }

@@ -26,11 +26,11 @@ const text = computed(() =>
 );
 </script>
 
-<style lang="scss" scoped>
-h1 {
-  margin-bottom: 50px;
-}
+<style lang="scss">
 .post-block {
+  h1 {
+    margin-bottom: 50px;
+  }
   display: flex;
   flex-direction: column;
   align-items: center;

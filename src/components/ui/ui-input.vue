@@ -16,7 +16,6 @@
       v-else
       ref="input"
     />
-
     <label
       class="ui-input__label"
       :class="{ top: labelTop }"
@@ -51,7 +50,7 @@ const labelTop = computed(() => {
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @mixin top-label {
   top: -7px;
   left: 12px;
