@@ -60,21 +60,27 @@ const placeholder = computed(
   }
   &__fake {
     height: 54px;
-    border: 1px solid v.$light-gray;
-    border-radius: 4px;
     width: 100%;
     display: grid;
     align-items: center;
     grid-template-columns: 81px 1fr;
     color: black;
-    gap: 16px;
     cursor: pointer;
-    & > :first-child {
+    & > span {
       height: 100%;
-      border-right: 1px solid v.$light-gray;
       display: flex;
       align-items: center;
+    }
+    & > :first-child {
       justify-content: center;
+      border: 1px solid black;
+      border-radius: 4px 0px 0px 4px;
+    }
+    & > :nth-child(2) {
+      border: 1px solid v.$light-gray;
+      border-left: none;
+      border-radius: 0px 4px 4px 0px;
+      padding-left: 16px;
     }
   }
   &__pl {
@@ -93,8 +99,7 @@ const placeholder = computed(
       &__fake {
         border-color: v.$red;
         border-width: 2px;
-        grid-template-columns: 80px 1fr;
-        & > :first-child {
+        & > span {
           border-color: v.$red;
           border-width: 2px;
         }

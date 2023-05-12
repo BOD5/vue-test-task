@@ -30,6 +30,7 @@ const text = computed(() =>
 .post-block {
   h1 {
     margin-bottom: 50px;
+    text-align: center;
   }
   display: flex;
   flex-direction: column;

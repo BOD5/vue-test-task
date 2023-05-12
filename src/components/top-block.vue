@@ -40,6 +40,8 @@ export default {
   @media (min-width: v.$bp-s) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url("@/assets/images/bg/bg-1024.webp");
+
+    height: 650px;
   }
 
   .no-webp & {
@@ -59,13 +61,19 @@ export default {
   .content {
     max-width: 412px;
     padding: 0px 16px;
+    padding-top: 40px;
     margin: auto;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     text-align: center;
+
+    @media (min-width: v.$bp-tb) {
+      padding-top: 0px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
     color: white;
     h1 {
       margin-bottom: 21px;
