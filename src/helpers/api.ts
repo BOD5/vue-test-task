@@ -77,6 +77,13 @@ export default class API {
         Token: this.token,
       },
     });
+    if (!this.token && !res?.success) {
+      return {
+        success: false,
+        message:
+          'The token has expired. Please try again and it will be updated',
+      } as RegistrationResponce;
+    }
     return res;
   }
 
