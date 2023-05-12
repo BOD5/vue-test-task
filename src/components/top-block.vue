@@ -52,12 +52,8 @@ export default {
     @media (min-width: v.$bp-s) {
       background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url("@/assets/images/bg/bg-1024.png");
+      height: 650px;
     }
-  }
-  @media (min-width: v.$bp-s) {
-    height: 650px;
-    background-position: 50% 80%;
-    background-size: 220%;
   }
 
   .content {
