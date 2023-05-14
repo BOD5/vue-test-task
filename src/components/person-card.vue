@@ -6,15 +6,27 @@
       alt="user photo"
       class="user-photo"
     />
-    <p class="user-name" v-tippy="{ content: user.name }">{{ user.name }}</p>
+    <p
+      class="user-name"
+      v-tippy="{ arrow: false, followCursor: true, content: user.name }"
+    >
+      {{ user.name }}
+    </p>
     <div class="user-desc">
       <span>{{ user.position }}</span>
-      <a :href="`mailto:${user.email}`" v-tippy="{ content: user.email }">
+      <a
+        :href="`mailto:${user.email}`"
+        v-tippy="{ arrow: false, followCursor: true, content: user.email }"
+      >
         {{ user.email }}
       </a>
       <a
         :href="`tel:${user.phone}`"
-        v-tippy="{ content: phoneFormat(user.phone) }"
+        v-tippy="{
+          arrow: false,
+          followCursor: true,
+          content: phoneFormat(user.phone),
+        }"
       >
         {{ phoneFormat(user.phone) }}
       </a>
@@ -33,8 +45,8 @@ defineProps<{
 
 const vTippy = directive;
 
-const setAltImg = (event) => {
-  event.target.src = "./images/photo-cover.svg";
+const setAltImg = (event: Event) => {
+  (event.target as HTMLImageElement).src = "./images/photo-cover.svg";
 };
 
 const phoneFormat = (phoneNumber: string) => {
